@@ -1,0 +1,32 @@
+<div class="card border-primary mb-3">
+ <!--  <div class="card-header">Pacientes</div> -->
+  <div class="card-body text-primary">
+    <h5 class="card-title">Lista de pacientes</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-success" routerLink="/patients/add-patients" type="button">Crear paciente</button>
+    </div>
+    <table class="table ">
+      <thead>
+        <tr>
+          <th>Nombre(s)</th>
+          <th>Primer apellido</th>
+          <th>Segundo apellido</th>
+          <th>Fecha de nacimiento</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paciente of listaPacientes">
+          <td>{{paciente.nombres}}</td>
+          <td>{{paciente.primerApellido}}</td>
+          <td>{{paciente.segundoApellido}}</td>
+          <td>{{paciente.fechaNacimiento}}</td>
+          <td><Button class="btn btn-primary" [routerLink]="['/patients/add-patients', paciente.id]">Editar</Button></td>
+          <td><Button class="btn btn-danger" (click)="eliminarPaciente(paciente)">Eliminar</Button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

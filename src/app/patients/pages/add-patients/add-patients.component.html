@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header bg-dark text-white">
+    {{titulo}}
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="form-group row">
+        <label class="col-form-label col-sm-2">Nombre</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="text" [(ngModel)]="paciente.nombres" name="nombres">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-form-label col-sm-2">Primer apellido</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="text" [(ngModel)]="paciente.primerApellido" name="primerApellido">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-form-label col-sm-2">Segundo apellido</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="text" [(ngModel)]="paciente.segundoApellido" name="segundoApellido">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-form-label col-sm-2">Fecha de nacimiento</label>
+        <div class="col-sm-6">
+          <input class="form-control" type="text" [(ngModel)]="paciente.fechaNacimiento" name="fechaNacimiento">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!paciente.id else elseBlock">Guardar</button>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)="update()">Actualizar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
